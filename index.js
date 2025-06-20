@@ -1,4 +1,5 @@
 const contact = {
+  id: 1,
   fullName: "Ammar Ismail Khocan",
   email: "ammarexample@gmail.com",
   phone: "+62 812002333",
@@ -7,4 +8,7 @@ const contact = {
     city: "Bandar Lampung",
     postalCode: 12344,
   },
+  isFavorite: true,
 };
+
+console.log(contact);
