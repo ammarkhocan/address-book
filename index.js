@@ -67,11 +67,6 @@ function displayContacts() {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
 
-<<<<<<< HEAD
-    const outputContact = `${contact.fullName} | ${contact.phone} | ${contact.email} | ${contact.address.city} | ${contact.address.postalCode} | ${contact.isFavorite}`;
-
-    console.log(outputContact);
-=======
     const contactToDisplay = `
     Full name: ${contact.fullName}
     Phone: ${contact.phone}
@@ -83,7 +78,6 @@ function displayContacts() {
     // TODO: Display labels
 
     console.log(contactToDisplay);
->>>>>>> 607806e4d8aad6ac6baf94a690c0a63872be5c3d
   }
 }
 
