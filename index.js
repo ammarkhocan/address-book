@@ -66,7 +66,9 @@ const contacts = [
 function contactList() {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
+
     const outputContact = `${contact.fullName} | ${contact.phone} | ${contact.email} | ${contact.address.city} | ${contact.address.postalCode} | ${contact.isFavorite}`;
+
     console.log(outputContact);
   }
 }
