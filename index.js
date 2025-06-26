@@ -9,6 +9,7 @@ const contacts = [
       city: "Bandar Lampung",
       postalCode: 12344,
     },
+    isFavorite: true,
   },
   {
     id: 2,
@@ -60,4 +61,14 @@ const contacts = [
   },
 ];
 
-console.log(contacts);
+// console.log(contacts);
+
+function contactList() {
+  for (let index = 0; index < contacts.length; index++) {
+    const contact = contacts[index];
+    const outputContact = `${contact.fullName} | ${contact.phone} | ${contact.email} | ${contact.address.city} | ${contact.address.postalCode} | ${contact.isFavorite}`;
+    console.log(outputContact);
+  }
+}
+
+contactList();
