@@ -1,4 +1,4 @@
-const contact = [
+const contacts = [
   {
     id: 1,
     fullName: "Ammar Ismail Khocan",
@@ -9,7 +9,6 @@ const contact = [
       city: "Bandar Lampung",
       postalCode: 12344,
     },
-    isFavorite: true,
   },
   {
     id: 2,
@@ -24,4 +23,5 @@ const contact = [
     isFavorite: false,
   },
 ];
+
 console.log(contact);
