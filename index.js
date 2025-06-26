@@ -5,11 +5,12 @@ const contacts = [
     email: "ammarexample@gmail.com",
     phone: "+62 812002333",
     address: {
-      streetAddress: "Jl. Nusantara No.12",
+      street: "Jl. Nusantara No.12",
       city: "Bandar Lampung",
       postalCode: 12344,
     },
-    isFavorite: true,
+    isFavorited: true,
+    labels: ["friend", "work"],
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const contacts = [
       city: "Medan",
       postalCode: 22023,
     },
-    isFavorite: false,
+    isFavorited: false,
+    labels: ["friend"],
   },
   {
     id: 3,
@@ -33,7 +35,7 @@ const contacts = [
       city: "Yogyakarta",
       postalCode: 55123,
     },
-    isFavorite: true,
+    isFavorited: true,
   },
   {
     id: 4,
@@ -45,7 +47,7 @@ const contacts = [
       city: "Jakarta Pusat",
       postalCode: 10130,
     },
-    isFavorite: false,
+    isFavorited: false,
   },
   {
     id: 5,
@@ -57,20 +59,32 @@ const contacts = [
       city: "Surabaya",
       postalCode: 60265,
     },
-    isFavorite: true,
+    isFavorited: true,
   },
 ];
 
-// console.log(contacts);
-
-function contactList() {
+function displayContacts() {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
 
+<<<<<<< HEAD
     const outputContact = `${contact.fullName} | ${contact.phone} | ${contact.email} | ${contact.address.city} | ${contact.address.postalCode} | ${contact.isFavorite}`;
 
     console.log(outputContact);
+=======
+    const contactToDisplay = `
+    Full name: ${contact.fullName}
+    Phone: ${contact.phone}
+    Email: ${contact.email}
+    Address:
+    - City: ${contact.address.city}
+    - Postal: ${contact.address.postalCode}
+    ${contact.isFavorited ? "⭐ Favorited" : ""}`;
+    // TODO: Display labels
+
+    console.log(contactToDisplay);
+>>>>>>> 607806e4d8aad6ac6baf94a690c0a63872be5c3d
   }
 }
 
-contactList();
+displayContacts();
