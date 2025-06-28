@@ -86,4 +86,46 @@ function displayContacts() {
   }
 }
 
+// Function create new contact
+function createContact(
+  id,
+  fullName,
+  email,
+  phone,
+  streetAddress,
+  city,
+  postalCode,
+  isFavorited,
+  labels
+) {
+  const newContact = {
+    id: id,
+    fullName: fullName,
+    email: email,
+    phone: phone,
+    address: {
+      streetAddress: streetAddress,
+      city: city,
+      postalCode: postalCode,
+    },
+    isFavorited: isFavorited,
+    labels: labels,
+  };
+
+  contacts.push(newContact);
+  console.log(`Kontak '${fullName}' berhasil ditambahkan!\n`);
+}
+
+createContact(
+  6,
+  "Doni Kusuma",
+  "doni@example.com",
+  "+62 8139099900",
+  "Jl. Zainal Abidin No.4",
+  "Lampung",
+  55123,
+  true,
+  ["friend"]
+);
+
 displayContacts();
