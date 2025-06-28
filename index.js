@@ -10,7 +10,7 @@ const contacts = [
       postalCode: 12344,
     },
     isFavorited: true,
-    labels: ["friend", "work"],
+    labels: ["friend", "work", "family"],
   },
   {
     id: 2,
@@ -36,6 +36,7 @@ const contacts = [
       postalCode: 55123,
     },
     isFavorited: true,
+    labels: ["family"],
   },
   {
     id: 4,
@@ -48,6 +49,7 @@ const contacts = [
       postalCode: 10130,
     },
     isFavorited: false,
+    labels: ["work"],
   },
   {
     id: 5,
@@ -60,6 +62,7 @@ const contacts = [
       postalCode: 60265,
     },
     isFavorited: true,
+    labels: ["friend"],
   },
 ];
 
@@ -74,8 +77,8 @@ function displayContacts() {
     Address:
     - City: ${contact.address.city}
     - Postal: ${contact.address.postalCode}
-    ${contact.isFavorited ? "⭐ Favorited" : ""}`;
-    // TODO: Display labels
+    ${contact.isFavorited ? "⭐ Favorited" : ""}
+    Labels: ${contact.labels ? contact.labels.join(", ") : "No labels"}`;
 
     console.log(contactToDisplay);
   }
