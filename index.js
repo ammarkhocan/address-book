@@ -66,7 +66,7 @@ const contacts = [
   },
 ];
 
-// Function Display Contact
+// Function display contact
 function displayContacts() {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
@@ -113,7 +113,21 @@ function createContact(
   };
 
   contacts.push(newContact);
-  console.log(`Kontak '${fullName}' berhasil ditambahkan!\n`);
+  console.log(`Contact '${fullName}' was added successfully!\n`);
+}
+
+//function delete data
+function deleteContactById(id) {
+  const index = contacts.findIndex(function (contact) {
+    return contact.id === id;
+  });
+
+  if (index !== -1) {
+    contacts.splice(index, 1);
+    console.log("Contact deleted successfully.");
+  } else {
+    console.log("Contact with the specified ID was not found.");
+  }
 }
 
 createContact(
@@ -127,5 +141,7 @@ createContact(
   true,
   ["friend"]
 );
+
+deleteContactById(3);
 
 displayContacts();
