@@ -66,6 +66,7 @@ const contacts = [
   },
 ];
 
+// Function Display Contact
 function displayContacts() {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
@@ -75,6 +76,7 @@ function displayContacts() {
     Phone: ${contact.phone}
     Email: ${contact.email}
     Address:
+    - Street Address : ${contact.address.streetAddress}
     - City: ${contact.address.city}
     - Postal: ${contact.address.postalCode}
     ${contact.isFavorited ? "⭐ Favorited" : ""}
