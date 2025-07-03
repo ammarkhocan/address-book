@@ -129,6 +129,42 @@ function deleteContact(contacts, contactId) {
   displayContacts(contacts);
 }
 
+// Function EDIT Contact
+function updateContact(contacts, contactId, updatedContactInput) {
+  const orignalData = contacts.find((contact) => {
+    return contact.id === contactId;
+  });
+
+  const updatedContact = {
+    id: contactId,
+    fullName: updatedContactInput.fullName || orignalData.fullName,
+    email: updatedContactInput.email || orignalData.email,
+    phone: updatedContactInput.phone || orignalData.phone,
+    address: {
+      streetAddress:
+        updatedContactInput.streetAddress || orignalData.streetAddress,
+      city: updatedContactInput.city || orignalData.city,
+      postalCode: updatedContactInput.postalCode || orignalData.postalCode,
+    },
+    isFavorited: updatedContactInput.isFavorited || orignalData.isFavorited,
+    labels: updatedContactInput.labels || orignalData.labels,
+  };
+
+  const updatedContacts = contacts.map((contact) => {
+    if (contact.id === contactId) {
+      return updatedContact;
+    }
+    return contact;
+  });
+
+  contacts = updatedContacts;
+  displayContacts(contacts);
+}
+
+updateContact(contacts, 1, {
+  fullName: "joe Doe",
+});
+
 // displayContacts(contacts);
 
 // searchContact(contacts, "ammar");
