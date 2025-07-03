@@ -66,6 +66,8 @@ let contacts = [
   },
 ];
 
+localStorage.setItem("contacts", JSON.stringify(contacts));
+
 // Function DISPLAY contact
 function displayContacts(contacts) {
   for (let index = 0; index < contacts.length; index++) {
