@@ -5,7 +5,7 @@ let contacts = [
     email: "ammarexample@gmail.com",
     phone: "+62 812002333",
     address: {
-      street: "Jl. Nusantara No.12",
+      streetAddress: "Jl. Nusantara No.12",
       city: "Bandar Lampung",
       postalCode: 12344,
     },
@@ -66,7 +66,9 @@ let contacts = [
   },
 ];
 
-localStorage.setItem("contacts", JSON.stringify(contacts));
+function saveToLocalStorage() {
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+}
 
 // Function DISPLAY contact
 function displayContacts(contacts) {
@@ -147,8 +149,7 @@ function updateContact(contacts, contactId, updatedContactInput) {
     email: updatedContactInput.email || orignalData.email,
     phone: updatedContactInput.phone || orignalData.phone,
     address: {
-      streetAddress:
-        updatedContactInput.streetAddress || orignalData.streetAddress,
+      streetAddress: updatedContactInput.streetAddress || orignalData.streetAddress,
       city: updatedContactInput.city || orignalData.city,
       postalCode: updatedContactInput.postalCode || orignalData.postalCode,
     },
@@ -167,13 +168,15 @@ function updateContact(contacts, contactId, updatedContactInput) {
   displayContacts(contacts);
 }
 
+saveToLocalStorage();
+
+displayContacts(contacts);
+
 // updateContact(contacts, 1, {
 //   fullName: "joe Doe",
 // });
 
-// displayContacts(contacts);
-
-searchContacts(contacts, "ammar");
+// searchContacts(contacts, "ammar");
 
 // addContact(contacts, {
 //   fullName: "Budi Putra",
@@ -186,4 +189,4 @@ searchContacts(contacts, "ammar");
 //   labels: ["work"],
 // });
 
-// deleteContact(contacts, 6);
+// deleteContact(contacts, 1);
