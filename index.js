@@ -92,7 +92,7 @@ function searchContacts(allContacts, searchTerm) {
     return contact.fullName.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
-  if (searchContacts.length <= 0) {
+  if (searchedContacts.length <= 0) {
     console.log("Not Found");
     return;
   }
@@ -165,13 +165,13 @@ function updateContact(contacts, contactId, updatedContactInput) {
   displayContacts(contacts);
 }
 
-updateContact(contacts, 1, {
-  fullName: "joe Doe",
-});
+// updateContact(contacts, 1, {
+//   fullName: "joe Doe",
+// });
 
 // displayContacts(contacts);
 
-// searchContact(contacts, "ammar");
+searchContacts(contacts, "ammar");
 
 // addContact(contacts, {
 //   fullName: "Budi Putra",
