@@ -1,4 +1,4 @@
-const contacts = [
+let contacts = [
   {
     id: 1,
     fullName: "Ammar Ismail Khocan",
@@ -66,8 +66,8 @@ const contacts = [
   },
 ];
 
-// Function display contact
-function displayContacts() {
+// Function DISPLAY contact
+function displayContacts(contacts) {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
 
@@ -86,62 +86,62 @@ function displayContacts() {
   }
 }
 
-// Function create new contact
-function createContact(
-  id,
-  fullName,
-  email,
-  phone,
-  streetAddress,
-  city,
-  postalCode,
-  isFavorited,
-  labels
-) {
-  const newContact = {
-    id: id,
-    fullName: fullName,
-    email: email,
-    phone: phone,
-    address: {
-      streetAddress: streetAddress,
-      city: city,
-      postalCode: postalCode,
-    },
-    isFavorited: isFavorited,
-    labels: labels,
-  };
-
-  contacts.push(newContact);
-  console.log(`Contact '${fullName}' was added successfully!\n`);
-}
-
-//function delete data
-function deleteContactById(id) {
-  const index = contacts.findIndex(function (contact) {
-    return contact.id === id;
+// Function SEARCH Contact
+function searchContact(allContacts, searchTerm) {
+  const searchedContact = allContacts.filter((contact) => {
+    return contact.fullName.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
-  if (index !== -1) {
-    contacts.splice(index, 1);
-    console.log("Contact deleted successfully.");
-  } else {
-    console.log("Contact with the specified ID was not found.");
-  }
+  displayContacts(searchedContact);
 }
 
-createContact(
-  6,
-  "Doni Kusuma",
-  "doni@example.com",
-  "+62 8139099900",
-  "Jl. Zainal Abidin No.4",
-  "Lampung",
-  55123,
-  true,
-  ["friend"]
-);
+// Function ADD Contact
+function generateId(contacts) {
+  return contacts[contacts.length - 1].id + 1;
+}
 
-deleteContactById(3);
+function addContact(contactList, newContactInput) {
+  const newContact = {
+    id: generateId(contactList),
+    fullName: newContactInput.fullName,
+    email: newContactInput.email,
+    phone: newContactInput.phone,
+    address: {
+      streetAddress: newContactInput.streetAddress,
+      city: newContactInput.city,
+      postalCode: newContactInput.postalCode,
+    },
+    isFavorited: newContactInput.isFavorited,
+    labels: newContactInput.labels,
+  };
 
-displayContacts();
+  const newContacts = [...contactList, newContact];
+  displayContacts(newContacts);
+}
+
+// Function DELETE Contact
+function deleteContact(contacts, contactId) {
+  const filteredContacts = contacts.filter((contact) => {
+    return contact.id != contactId;
+  });
+
+  contacts = filteredContacts;
+  displayContacts(contacts);
+}
+
+// displayContacts(contacts);
+
+// searchContact(contacts, "ammar");
+
+// addContact(contacts, {
+//   fullName: "Budi Putra",
+//   email: "Budi Put@gmail.com",
+//   phone: "+62 8139099900",
+//   streetAddress: "Jl. Asoka Barat No.89",
+//   city: "Solo",
+//   postalCode: 57111,
+//   isFavorited: true,
+//   labels: ["work"],
+// });
+
+// deleteContact(contacts, 6);
