@@ -87,12 +87,16 @@ function displayContacts(contacts) {
 }
 
 // Function SEARCH Contact
-function searchContact(allContacts, searchTerm) {
-  const searchedContact = allContacts.filter((contact) => {
+function searchContacts(allContacts, searchTerm) {
+  const searchedContacts = allContacts.filter((contact) => {
     return contact.fullName.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
-  displayContacts(searchedContact);
+  if (searchContacts.length <= 0) {
+    console.log("Not Found");
+    return;
+  }
+  displayContacts(searchedContacts);
 }
 
 // Function ADD Contact
