@@ -83,6 +83,8 @@ function displayContacts(contacts) {
       }, ${contact.address.postalCode}</p>
         <p><strong>Favorited:</strong> ${contact.isFavorited ? "Yes" : "No"}</p>
         <p><strong>Labels:</strong> ${contact.labels.join(", ")}</p>
+        <button onclick="deleteContact(${contact.id})">Delete</button>
+        <button onclick="deleteContact(${contact.ediit})">Edit</button>
         <hr>
         </li>`;
     })
@@ -90,101 +92,83 @@ function displayContacts(contacts) {
 }
 displayContacts(dataContacts);
 
-// Function DISPLAY contact
-// function displayContacts(contacts) {
-//   const contactListElement = document.getElementById("contact-list");
+// Function DELETE Contact
+function deleteContact(id) {
+  const updateContacts = dataContacts.filter((contact) => contact.id !== id);
 
-//   contactListElement.innerHTML = contacts
-//     .map((contact) => {
-//       return `
-//       <li> <p>Full Name: ${contact.fullName}</p>
-//       <p>Phone: ${contact.phone}}</p>
-//       <p>Email: ${contact.email}</p>
-//        </li>
-//       `;
-//     })
-//     .join("");
-// }
-// displayContacts(contacts);
+  dataContacts = updateContacts;
+
+  displayContacts(dataContacts);
+}
 
 // Function SEARCH Contact
-function searchContacts(allContacts, searchTerm) {
-  const searchedContacts = allContacts.filter((contact) => {
-    return contact.fullName.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+// function searchContacts(allContacts, searchTerm) {
+//   const searchedContacts = allContacts.filter((contact) => {
+//     return contact.fullName.toLowerCase().includes(searchTerm.toLowerCase());
+//   });
 
-  if (searchedContacts.length <= 0) {
-    console.log("Not Found");
-    return;
-  }
-  displayContacts(searchedContacts);
-}
+//   if (searchedContacts.length <= 0) {
+//     console.log("Not Found");
+//     return;
+//   }
+//   displayContacts(searchedContacts);
+// }
 
 // Function ADD Contact
-function generateId(contacts) {
-  return contacts[contacts.length - 1].id + 1;
-}
+// function generateId(contacts) {
+//   return contacts[contacts.length - 1].id + 1;
+// }
 
-function addContact(contactList, newContactInput) {
-  const newContact = {
-    id: generateId(contactList),
-    fullName: newContactInput.fullName,
-    email: newContactInput.email,
-    phone: newContactInput.phone,
-    address: {
-      streetAddress: newContactInput.streetAddress,
-      city: newContactInput.city,
-      postalCode: newContactInput.postalCode,
-    },
-    isFavorited: newContactInput.isFavorited,
-    labels: newContactInput.labels,
-  };
+// function addContact(contactList, newContactInput) {
+//   const newContact = {
+//     id: generateId(contactList),
+//     fullName: newContactInput.fullName,
+//     email: newContactInput.email,
+//     phone: newContactInput.phone,
+//     address: {
+//       streetAddress: newContactInput.streetAddress,
+//       city: newContactInput.city,
+//       postalCode: newContactInput.postalCode,
+//     },
+//     isFavorited: newContactInput.isFavorited,
+//     labels: newContactInput.labels,
+//   };
 
-  const newContacts = [...contactList, newContact];
-  displayContacts(newContacts);
-}
-
-// Function DELETE Contact
-function deleteContact(contacts, contactId) {
-  const filteredContacts = contacts.filter((contact) => {
-    return contact.id != contactId;
-  });
-
-  contacts = filteredContacts;
-  displayContacts(contacts);
-}
+//   const newContacts = [...contactList, newContact];
+//   displayContacts(newContacts);
+// }
 
 // Function EDIT Contact
-function updateContact(contacts, contactId, updatedContactInput) {
-  const orignalData = contacts.find((contact) => {
-    return contact.id === contactId;
-  });
+// function updateContact(contacts, contactId, updatedContactInput) {
+//   const orignalData = contacts.find((contact) => {
+//     return contact.id === contactId;
+//   });
 
-  const updatedContact = {
-    id: contactId,
-    fullName: updatedContactInput.fullName || orignalData.fullName,
-    email: updatedContactInput.email || orignalData.email,
-    phone: updatedContactInput.phone || orignalData.phone,
-    address: {
-      streetAddress:
-        updatedContactInput.streetAddress || orignalData.streetAddress,
-      city: updatedContactInput.city || orignalData.city,
-      postalCode: updatedContactInput.postalCode || orignalData.postalCode,
-    },
-    isFavorited: updatedContactInput.isFavorited || orignalData.isFavorited,
-    labels: updatedContactInput.labels || orignalData.labels,
-  };
+//   const updatedContact = {
+//     id: contactId,
+//     fullName: updatedContactInput.fullName || orignalData.fullName,
+//     email: updatedContactInput.email || orignalData.email,
+//     phone: updatedContactInput.phone || orignalData.phone,
+//     address: {
+//       streetAddress:
+//         updatedContactInput.streetAddress || orignalData.streetAddress,
+//       city: updatedContactInput.city || orignalData.city,
+//       postalCode: updatedContactInput.postalCode || orignalData.postalCode,
+//     },
+//     isFavorited: updatedContactInput.isFavorited || orignalData.isFavorited,
+//     labels: updatedContactInput.labels || orignalData.labels,
+//   };
 
-  const updatedContacts = contacts.map((contact) => {
-    if (contact.id === contactId) {
-      return updatedContact;
-    }
-    return contact;
-  });
+//   const updatedContacts = contacts.map((contact) => {
+//     if (contact.id === contactId) {
+//       return updatedContact;
+//     }
+//     return contact;
+//   });
 
-  contacts = updatedContacts;
-  displayContacts(contacts);
-}
+//   contacts = updatedContacts;
+//   displayContacts(contacts);
+// }
 
 // searchContacts(contacts, "ammar");
 
