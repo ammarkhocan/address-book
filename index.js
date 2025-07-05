@@ -1,11 +1,11 @@
-let contacts = [
+let dataContacts = [
   {
     id: 1,
     fullName: "Ammar Ismail Khocan",
     email: "ammarexample@gmail.com",
     phone: "+62 812002333",
     address: {
-      street: "Jl. Nusantara No.12",
+      streetAddress: "Jl. Nusantara No.12",
       city: "Bandar Lampung",
       postalCode: 12344,
     },
@@ -66,27 +66,46 @@ let contacts = [
   },
 ];
 
-localStorage.setItem("contacts", JSON.stringify(contacts));
+localStorage.setItem("contacts", JSON.stringify(dataContacts));
 
 // Function DISPLAY contact
 function displayContacts(contacts) {
-  for (let index = 0; index < contacts.length; index++) {
-    const contact = contacts[index];
+  const contactListElement = document.getElementById("contact-list");
 
-    const contactToDisplay = `
-    Full name: ${contact.fullName}
-    Phone: ${contact.phone}
-    Email: ${contact.email}
-    Address:
-    - Street Address : ${contact.address.streetAddress}
-    - City: ${contact.address.city}
-    - Postal: ${contact.address.postalCode}
-    ${contact.isFavorited ? "⭐ Favorited" : ""}
-    Labels: ${contact.labels ? contact.labels.join(", ") : "No labels"}`;
-
-    console.log(contactToDisplay);
-  }
+  contactListElement.innerHTML = contacts
+    .map((contact) => {
+      return `<li>
+           <p><strong>Full Name:</strong> ${contact.fullName}</p>
+        <p><strong>Email:</strong> ${contact.email}</p>
+        <p><strong>Phone:</strong> ${contact.phone}</p>
+        <p><strong>Address:</strong> ${contact.address.streetAddress}, ${
+        contact.address.city
+      }, ${contact.address.postalCode}</p>
+        <p><strong>Favorited:</strong> ${contact.isFavorited ? "Yes" : "No"}</p>
+        <p><strong>Labels:</strong> ${contact.labels.join(", ")}</p>
+        <hr>
+        </li>`;
+    })
+    .join("");
 }
+displayContacts(dataContacts);
+
+// Function DISPLAY contact
+// function displayContacts(contacts) {
+//   const contactListElement = document.getElementById("contact-list");
+
+//   contactListElement.innerHTML = contacts
+//     .map((contact) => {
+//       return `
+//       <li> <p>Full Name: ${contact.fullName}</p>
+//       <p>Phone: ${contact.phone}}</p>
+//       <p>Email: ${contact.email}</p>
+//        </li>
+//       `;
+//     })
+//     .join("");
+// }
+// displayContacts(contacts);
 
 // Function SEARCH Contact
 function searchContacts(allContacts, searchTerm) {
@@ -167,13 +186,7 @@ function updateContact(contacts, contactId, updatedContactInput) {
   displayContacts(contacts);
 }
 
-// updateContact(contacts, 1, {
-//   fullName: "joe Doe",
-// });
-
-// displayContacts(contacts);
-
-searchContacts(contacts, "ammar");
+// searchContacts(contacts, "ammar");
 
 // addContact(contacts, {
 //   fullName: "Budi Putra",
@@ -187,3 +200,7 @@ searchContacts(contacts, "ammar");
 // });
 
 // deleteContact(contacts, 6);
+
+// updateContact(contacts, 1, {
+//   fullName: "joe Doe",
+// });
