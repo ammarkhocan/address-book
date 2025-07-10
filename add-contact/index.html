@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 h-screen flex">
+    <!-- Left Sidebar -->
+    <div class="bg-white w-64 shadow-lg flex flex-col">
+      <div class="p-4 text-2xl font-bold text-blue-600">Contacts</div>
+      <div class="flex-grow space-y-2 px-4 py-2">
+        <a
+          href="/index.html"
+          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
+        >
+          All Contacts
+        </a>
+        <div
+          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
+        >
+          Favorites
+        </div>
+        <div
+          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
+        >
+          Family
+        </div>
+        <div
+          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
+        >
+          Work
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 p-4">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Add New Contact</h2>
+      <form id="contactForm" class="space-y-4">
+        <div>
+          <label for="name" class="block text-gray-700">Full Name</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter full name"
+            required
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter email address"
+            required
+          />
+        </div>
+        <div>
+          <label for="phone" class="block text-gray-700">Phone</label>
+          <input
+            id="phone"
+            type="tel"
+            name="phone"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter phone number"
+            required
+          />
+        </div>
+        <div>
+          <label for="address" class="block text-gray-700"
+            >Street Address</label
+          >
+          <input
+            id="address"
+            type="text"
+            name="address"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter street address"
+            required
+          />
+        </div>
+        <div>
+          <label for="city" class="block text-gray-700">City</label>
+          <input
+            id="city"
+            type="text"
+            name="city"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter city"
+            required
+          />
+        </div>
+        <div>
+          <label for="postalCode" class="block text-gray-700"
+            >Postal Code</label
+          >
+          <input
+            id="postalCode"
+            type="text"
+            name="postalCode"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter postal code"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="isFavorited" class="flex items-center">
+            <input
+              id="isFavorited"
+              type="checkbox"
+              name="isFavorited"
+              class="mr-2"
+            />
+            Is Favorited
+          </label>
+        </div>
+
+        <!-- Labels Dropdown -->
+        <div>
+          <label for="labels" class="block text-gray-700">Labels</label>
+          <select
+            id="labels"
+            name="labels"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          >
+            <option value="friend">Friend</option>
+            <option value="work">Work</option>
+            <option value="family">Family</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+        >
+          Save Contact
+        </button>
+      </form>
+    </div>
+    <script src="/index.js"></script>
+  </body>
+</html>
