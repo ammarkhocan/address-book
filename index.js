@@ -74,30 +74,42 @@ function displayContacts(contacts) {
 
   contactListElement.innerHTML = contacts
     .map((contact) => {
-      return `<li>
-           <p><strong>Full Name:</strong> ${contact.fullName}</p>
-        <p><strong>Email:</strong> ${contact.email}</p>
-        <p><strong>Phone:</strong> ${contact.phone}</p>
-        <p><strong>Address:</strong> ${contact.address.streetAddress}, ${
-        contact.address.city
-      }, ${contact.address.postalCode}</p>
-        <p><strong>Favorited:</strong> ${contact.isFavorited ? "Yes" : "No"}</p>
-        <p><strong>Labels:</strong> ${contact.labels.join(", ")}</p>
-        <div class="flex gap-2 mt-2">
-            <button onclick="deleteContact(${contact.id})"
-              class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition">
-              Delete
-            </button>
-            <button onclick="editContact(${contact.id})"
-              class="bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600 transition">
-              Edit
-            </button>
+      return `<li class="flex items-center justify-between p-3 border-b border-gray-200 hover:bg-gray-50 rounded-md">
+        <div class="flex items-start space-x-3 flex-1">
+          <div>
+            <p class="font-semibold text-gray-700">${contact.fullName}</p>
+            <p class="text-sm text-gray-600">Email: ${contact.email}</p>
+            <p class="text-sm text-gray-600">Phone: ${contact.phone}</p>
+            <p class="text-sm text-gray-600">Address: ${
+              contact.address.streetAddress
+            }, ${contact.address.city}, ${contact.address.postalCode}</p>
+            <p class="text-sm text-gray-600">Favorited: ${
+              contact.isFavorited ? "Yes" : "No"
+            }</p>
+            <p class="text-sm text-gray-600">Labels: ${contact.labels.join(
+              ", "
+            )}</p>
           </div>
-        <hr>
-        </li>`;
+        </div>
+
+        <div class="flex items-center space-x-3 ml-auto">
+          <button class="text-gray-500 hover:text-blue-500" onclick="editContact(${
+            contact.id
+          })">
+            Edit
+          </button>
+          <button class="text-gray-500 hover:text-red-500" onclick="deleteContact(${
+            contact.id
+          })">
+            Delete
+          </button>
+        </div>
+        <hr class="my-2 border-gray-300" />
+      </li>`;
     })
     .join("");
 }
+
 displayContacts(dataContacts);
 
 // Function DELETE Contact
