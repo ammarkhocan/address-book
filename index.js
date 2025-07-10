@@ -83,8 +83,16 @@ function displayContacts(contacts) {
       }, ${contact.address.postalCode}</p>
         <p><strong>Favorited:</strong> ${contact.isFavorited ? "Yes" : "No"}</p>
         <p><strong>Labels:</strong> ${contact.labels.join(", ")}</p>
-        <button onclick="deleteContact(${contact.id})">Delete</button>
-        <button onclick="deleteContact(${contact.ediit})">Edit</button>
+        <div class="flex gap-2 mt-2">
+            <button onclick="deleteContact(${contact.id})"
+              class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition">
+              Delete
+            </button>
+            <button onclick="editContact(${contact.id})"
+              class="bg-yellow-500 text-white px-3 py-1 rounded text-sm hover:bg-yellow-600 transition">
+              Edit
+            </button>
+          </div>
         <hr>
         </li>`;
     })
