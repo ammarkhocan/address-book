@@ -50,7 +50,6 @@ function displayContacts(contacts) {
     .join("");
 }
 
-// Panggil fungsi displayContacts untuk menampilkan kontak saat halaman dimuat
 displayContacts(dataContacts);
 
 // Fungsi DELETE Contact
@@ -58,10 +57,8 @@ function deleteContact(id) {
   const updateContacts = dataContacts.filter((contact) => contact.id !== id);
   dataContacts = updateContacts;
 
-  // Simpan data yang diperbarui ke localStorage
   localStorage.setItem("contacts", JSON.stringify(dataContacts));
 
-  // Update tampilan setelah data dihapus
   displayContacts(dataContacts);
 }
 
