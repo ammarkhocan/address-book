@@ -25,7 +25,8 @@ addFormElement.addEventListener("submit", function (event) {
 
 // Function to generate ID
 function generateId(contacts) {
-  return contacts[contacts.length - 1].id + 1;
+  // return contacts[contacts.length - 1].id + 1;
+  return contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 1;
 }
 
 // Function to add contact
