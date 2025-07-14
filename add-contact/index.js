@@ -12,7 +12,7 @@ addFormElement.addEventListener("submit", function (event) {
     streetAddress: addFormData.get("streetAddress"),
     city: addFormData.get("city"),
     postalCode: addFormData.get("postalCode"),
-    isFavorited: addFormData.get("isFavorited") === "on", // Check if checkbox is checked
+    isFavorited: addFormData.get("isFavorited") === "on",
     labels: addFormData.getAll("labels"),
   };
 
