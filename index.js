@@ -33,6 +33,11 @@ function displayContacts(contacts) {
         </div>
 
         <div class="flex items-center space-x-3 ml-auto">
+          <button class="text-gray-500 hover:text-yellow-500" onclick="viewContact(${
+            contact.id
+          })">
+          View
+          </button>
           <button class="text-gray-500 hover:text-blue-500" onclick="editContact(${
             contact.id
           })">
@@ -74,4 +79,8 @@ function searchContacts(allContacts, searchQuery) {
   }
 
   return searchedContacts;
+}
+
+function viewContact(id) {
+  window.location.href = `view-contact/index.html?id=${id}`;
 }
