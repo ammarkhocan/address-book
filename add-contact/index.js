@@ -55,7 +55,7 @@ function addContact(contactList, newContactInput) {
   localStorage.setItem("contacts", JSON.stringify(newContacts));
 
   // Redirect to main page
-  window.location.href = "/index.html";
+  window.location.href = "/";
 
   displayContacts(newContacts);
 }
