@@ -1,23 +1,11 @@
-const url = new URL(window.location.href);
-const idFromURL = url.searchParams.get("id");
+const idFromURL = new URLSearchParams(window.location.search).get("id");
 
-let allContacts = localStorage.getItem("contacts");
+let allContacts = JSON.parse(localStorage.getItem("contacts") || "[]");
 
-allContacts = allContacts ? JSON.parse(allContacts) : [];
-
-let selectedContact = null;
-
-for (let i = 0; i < allContacts.length; i++) {
-  if (allContacts[i].id == idFromURL) {
-    selectedContact = allContacts[i];
-    break;
-  }
-}
-
-let displayPlace = document.getElementById("contact-details");
+const selectedContact = allContacts.find((contact) => contact.id == idFromURL);
 
 if (selectedContact) {
-  displayPlace.innerHTML = `
+  document.getElementById("contact-details").innerHTML = `
     <p><strong>Name:</strong> ${selectedContact.fullName}</p>
     <p><strong>Email:</strong> ${selectedContact.email}</p>
     <p><strong>Phone:</strong> ${selectedContact.phone}</p>
