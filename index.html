@@ -11,31 +11,11 @@
     <div class="bg-white w-64 shadow-lg flex flex-col">
       <div class="p-4 text-2xl font-bold text-blue-600">Contacts</div>
       <div class="flex-grow space-y-2 px-4 py-2">
-        <div
-          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
-        >
-          All Contacts
-        </div>
-        <div
-          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
-        >
-          Favorites
-        </div>
-        <div
-          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
-        >
-          Family
-        </div>
-        <div
-          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
-        >
-          Work
-        </div>
-        <div
-          class="cursor-pointer text-gray-700 hover:bg-gray-100 rounded-md p-2"
-        >
-          Friend
-        </div>
+        <a href="/" class="text-gray-700 hover:bg-gray-100 rounded-md p-2"> All Contacts </a>
+        <a href="/favorites" class="text-gray-700 hover:bg-gray-100 rounded-md p-2">Favorites</a>
+        <a href="/family" class="text-gray-700 hover:bg-gray-100 rounded-md p-2">Family</a>
+        <a href="/work" class="text-gray-700 hover:bg-gray-100 rounded-md p-2">Work</a>
+        <a href="/friend" class="text-gray-700 hover:bg-gray-100 rounded-md p-2">Friend</a>
       </div>
     </div>
     <!-- Main Content Area -->
@@ -49,10 +29,7 @@
             name="q"
             class="flex-grow border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button
-            type="submit"
-            class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-          >
+          <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
             Search
           </button>
         </form>
@@ -62,10 +39,7 @@
       <div class="bg-white p-4 rounded-lg shadow-sm space-y-4">
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-semibold text-gray-800">All Contacts</h2>
-          <a
-            href="/add-contact"
-            class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-          >
+          <a href="/add-contact" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
             + Add Contact
           </a>
         </div>
