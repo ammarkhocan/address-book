@@ -41,7 +41,7 @@ function displayContacts(contacts) {
           <button class="text-gray-500 hover:text-blue-500" onclick="editContact(${
             contact.id
           })">
-            Edit
+          Edit
           </button>
           <button class="text-gray-500 hover:text-red-500" onclick="deleteContact(${
             contact.id
@@ -81,6 +81,13 @@ function searchContacts(allContacts, searchQuery) {
   return searchedContacts;
 }
 
+// Redirect contact view
 function viewContact(id) {
   window.location.href = `view-contact/index.html?id=${id}`;
+}
+
+//edit
+function editContact(id) {
+  // Arahkan ke form tambah kontak, tapi dengan parameter ID
+  window.location.href = `add-contact/index.html?id=${id}`;
 }

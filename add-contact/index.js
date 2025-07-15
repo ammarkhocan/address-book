@@ -1,5 +1,8 @@
 const addFormElement = document.getElementById("contact-form");
 
+const urlParams = new URLSearchParams(window.location.search);
+const editId = urlParams.get("id");
+
 addFormElement.addEventListener("submit", function (event) {
   event.preventDefault();
 
