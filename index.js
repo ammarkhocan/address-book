@@ -1,7 +1,6 @@
-// Ambil data kontak dari localStorage
 let dataContacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
-// Fungsi untuk menampilkan kontak
+// Function untuk menampilkan kontak
 function displayContacts(contacts) {
   const contactListElement = document.getElementById("contact-list");
 
@@ -57,7 +56,7 @@ function displayContacts(contacts) {
 
 displayContacts(dataContacts);
 
-// Fungsi DELETE Contact
+// Function DELETE Contact
 function deleteContact(id) {
   const updateContacts = dataContacts.filter((contact) => contact.id !== id);
   dataContacts = updateContacts;
@@ -88,6 +87,5 @@ function viewContact(id) {
 
 //edit
 function editContact(id) {
-  // Arahkan ke form tambah kontak, tapi dengan parameter ID
   window.location.href = `add-contact/index.html?id=${id}`;
 }
