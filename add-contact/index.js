@@ -9,7 +9,7 @@ addFormElement.addEventListener("submit", function (event) {
     fullName: addFormData.get("name"),
     email: addFormData.get("email"),
     phone: addFormData.get("phone"),
-    streetAddress: addFormData.get("streetAddress"),
+    streetAddress: addFormData.get("address"),
     city: addFormData.get("city"),
     postalCode: addFormData.get("postalCode"),
     isFavorited: addFormData.get("isFavorited") === "on",
@@ -19,14 +19,13 @@ addFormElement.addEventListener("submit", function (event) {
   let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
   console.log({ contactData });
 
-  // Add contact to the contacts array and save it to localStorage
   addContact(contacts, contactData);
 });
 
 // Function to generate ID
 function generateId(contacts) {
-  // return contacts[contacts.length - 1].id + 1;
-  return contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 1;
+  if (contacts.length === 0) return 1;
+  return contacts[contacts.length - 1].id + 1;
 }
 
 // Function to add contact
@@ -52,9 +51,8 @@ function addContact(contactList, newContactInput) {
   // Save new contacts to localStorage
   localStorage.setItem("contacts", JSON.stringify(newContacts));
 
-  // Redirect ke halaman utama setelah berhasil
+  // Redirect to main page
   window.location.href = "/index.html";
 
-  // Display contacts after adding new one
   displayContacts(newContacts);
 }
