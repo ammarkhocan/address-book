@@ -4,12 +4,10 @@ let dataContacts = JSON.parse(localStorage.getItem("contacts")) || [];
 function displayContacts(contacts) {
   const contactListElement = document.getElementById("contact-list");
 
-  const ulrParams = new URLSearchParams(window.location.search);
-  const searchQuery = ulrParams.get("q");
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get("q");
 
-  const contactsToDisplay = searchQuery
-    ? searchContacts(contacts, searchQuery)
-    : contacts;
+  const contactsToDisplay = searchQuery ? searchContacts(contacts, searchQuery) : contacts;
 
   contactListElement.innerHTML = contactsToDisplay
     .map((contact) => {
@@ -19,32 +17,20 @@ function displayContacts(contacts) {
             <p class="font-semibold text-gray-700">${contact.fullName}</p>
             <p class="text-sm text-gray-600">Email: ${contact.email}</p>
             <p class="text-sm text-gray-600">Phone: ${contact.phone}</p>
-            <p class="text-sm text-gray-600">Address: ${
-              contact.address.streetAddress
-            }, ${contact.address.city}, ${contact.address.postalCode}</p>
-            <p class="text-sm text-gray-600">Favorited: ${
-              contact.isFavorited ? "Yes" : "No"
-            }</p>
-            <p class="text-sm text-gray-600">Labels: ${contact.labels.join(
-              ", "
-            )}</p>
+            <p class="text-sm text-gray-600">Address: ${contact.address.streetAddress}, ${contact.address.city}, ${contact.address.postalCode}</p>
+            <p class="text-sm text-gray-600">Favorited: ${contact.isFavorited ? "Yes" : "No"}</p>
+            <p class="text-sm text-gray-600">Labels: ${contact.labels.join(", ")}</p>
           </div>
         </div>
 
         <div class="flex items-center space-x-3 ml-auto">
-          <button class="text-gray-500 hover:text-yellow-500" onclick="viewContact(${
-            contact.id
-          })">
+          <button class="text-gray-500 hover:text-yellow-500" onclick="viewContact(${contact.id})">
           View
           </button>
-          <button class="text-gray-500 hover:text-blue-500" onclick="editContact(${
-            contact.id
-          })">
+          <button class="text-gray-500 hover:text-blue-500" onclick="editContact(${contact.id})">
           Edit
           </button>
-          <button class="text-gray-500 hover:text-red-500" onclick="deleteContact(${
-            contact.id
-          })">
+          <button class="text-gray-500 hover:text-red-500" onclick="deleteContact(${contact.id})">
             Delete
           </button>
         </div>
@@ -82,10 +68,10 @@ function searchContacts(allContacts, searchQuery) {
 
 // Redirect contact view
 function viewContact(id) {
-  window.location.href = `view-contact/index.html?id=${id}`;
+  window.location.href = `view-contact/?id=${id}`;
 }
 
 //edit
 function editContact(id) {
-  window.location.href = `add-contact/index.html?id=${id}`;
+  window.location.href = `add-contact/?id=${id}`;
 }
