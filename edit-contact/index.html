@@ -43,7 +43,6 @@
             id="streetAddress"
             type="text"
             class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
           />
         </div>
         <div>
@@ -52,7 +51,6 @@
             id="city"
             type="text"
             class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
           />
         </div>
         <div>
@@ -61,7 +59,6 @@
             id="postalCode"
             type="text"
             class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
           />
         </div>
         <div>
@@ -72,15 +69,27 @@
         </div>
         <div>
           <label for="labels" class="block text-gray-700">Labels</label>
-          <select id="labels" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          <select
+            id="labels"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          >
             <option value="friend">Friend</option>
             <option value="work">Work</option>
             <option value="family">Family</option>
           </select>
         </div>
         <div class="flex justify-end gap-2 pt-2">
-          <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">Save Changes</button>
-          <button type="button" id="cancel-button" class="bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400 transition">Cancel</button>
+          <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+            Save Changes
+          </button>
+          <button
+            type="button"
+            id="cancel-button"
+            class="bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400 transition"
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </div>
