@@ -12,10 +12,10 @@
       <div class="p-4 text-2xl font-bold text-blue-600">Contacts</div>
       <div class="flex-grow space-y-2 px-4 py-2">
         <a href="/" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">All Contacts</a>
-        <a href="/?tag=favorites" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Favorites</a>
-        <a href="/?tag=family" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Family</a>
-        <a href="/?tag=work" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Work</a>
-        <a href="/?tag=friend" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Friend</a>
+        <a href="/?favorites" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Favorites</a>
+        <a href="/?label=family" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Family</a>
+        <a href="/?label=work" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Work</a>
+        <a href="/?label=friend" class="text-gray-700 hover:bg-gray-100 rounded-md p-2 block">Friend</a>
       </div>
     </div>
 
@@ -30,7 +30,9 @@
             name="q"
             class="flex-grow border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">Search</button>
+          <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+            Search
+          </button>
         </form>
       </div>
 
@@ -38,7 +40,9 @@
       <div class="bg-white p-4 rounded-lg shadow-sm space-y-4">
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-semibold text-gray-800">All Contacts</h2>
-          <a href="/add-contact" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">+ Add Contact</a>
+          <a href="/add-contact" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+            >+ Add Contact</a
+          >
         </div>
 
         <ul id="contact-list" class="space-y-4 mt-4"></ul>
