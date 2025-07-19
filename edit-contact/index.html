@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center py-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Edit Contact</h2>
+      <form id="edit-form" class="space-y-4">
+        <div>
+          <label for="fullName" class="block text-gray-700">Full Name</label>
+          <input
+            id="fullName"
+            type="text"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div>
+          <label for="phone" class="block text-gray-700">Phone</label>
+          <input
+            id="phone"
+            type="text"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div>
+          <label for="streetAddress" class="block text-gray-700">Street Address</label>
+          <input
+            id="streetAddress"
+            type="text"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div>
+          <label for="city" class="block text-gray-700">City</label>
+          <input
+            id="city"
+            type="text"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div>
+          <label for="postalCode" class="block text-gray-700">Postal Code</label>
+          <input
+            id="postalCode"
+            type="text"
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div>
+          <label for="isFavorited" class="flex items-center">
+            <input id="isFavorited" type="checkbox" class="mr-2" />
+            Is Favorited
+          </label>
+        </div>
+        <div>
+          <label for="labels" class="block text-gray-700">Labels</label>
+          <select id="labels" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            <option value="friend">Friend</option>
+            <option value="work">Work</option>
+            <option value="family">Family</option>
+          </select>
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">Save Changes</button>
+          <button type="button" id="cancel-button" class="bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400 transition">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="edit.js"></script>
+  </body>
+</html>
