@@ -4,16 +4,20 @@ let dataContacts = JSON.parse(localStorage.getItem("contacts")) || [];
 function displayContacts(contacts) {
   const contactListElement = document.getElementById("contact-list");
 
+  // Mengubah urlParams menjadi ursSearchParams
   const ursSearchParams = new URLSearchParams(window.location.search);
-  const searchQuery = ursSearchParams.get("q");
-  const tagQuery = ursSearchParams.get("tag");
+  const searchQuery = ursSearchParams.get("q"); // Mengambil parameter pencarian
+  const tagQuery = ursSearchParams.get("tag"); // Mengambil parameter tag dari URL
 
-  const contactsToDisplay = searchQuery ? searchContacts(contacts, searchQuery) : contacts;
+  // Filter berdasarkan pencarian
+  let contactsToDisplay = searchQuery ? searchContacts(contacts, searchQuery) : contacts;
 
+  // Filter berdasarkan tag
   if (tagQuery) {
     contactsToDisplay = filterContactsByTag(contactsToDisplay, tagQuery);
   }
 
+  // Render kontak yang telah difilter
   contactListElement.innerHTML = contactsToDisplay
     .map((contact) => {
       return `<li class="flex items-center justify-between p-3 border-b border-gray-200 hover:bg-gray-50 rounded-md">
