@@ -44,9 +44,14 @@ displayContacts(dataContacts);
 
 // Function DELETE Contact
 function deleteContact(id) {
-  const updateContacts = dataContacts.filter((contact) => contact.id !== id);
-  dataContacts = updateContacts;
+  const isConfirmed = confirm("Do you want to delete this contact?");
+  if (!isConfirmed) return;
 
+  const updateContacts = dataContacts.filter(function (contact) {
+    return contact.id !== id;
+  });
+
+  dataContacts = updateContacts;
   localStorage.setItem("contacts", JSON.stringify(dataContacts));
 
   displayContacts(dataContacts);
