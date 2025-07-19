@@ -12,4 +12,4 @@ Access it at [address-book.ammarismail.com](https://address-book.ammarismail.com
 - [✔] Search Contact
 - [✔] Data saved in browser / localstorage
 - [✔] Edit contact
-- [ ] View/filter by tag
+- [✔] View/filter by tag
