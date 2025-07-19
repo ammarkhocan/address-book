@@ -71,7 +71,7 @@ function viewContact(id) {
   window.location.href = `view-contact/?id=${id}`;
 }
 
-//edit
+// Redirect edit
 function editContact(id) {
-  window.location.href = `add-contact/?id=${id}`;
+  window.location.href = `edit-contact/?id=${id}`;
 }
