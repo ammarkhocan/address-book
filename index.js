@@ -1,13 +1,18 @@
 let dataContacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
-// Function untuk menampilkan kontak
+// Function DISPLAY Contact
 function displayContacts(contacts) {
   const contactListElement = document.getElementById("contact-list");
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlParams.get("q");
+  const ursSearchParams = new URLSearchParams(window.location.search);
+  const searchQuery = ursSearchParams.get("q");
+  const tagQuery = ursSearchParams.get("tag");
 
   const contactsToDisplay = searchQuery ? searchContacts(contacts, searchQuery) : contacts;
+
+  if (tagQuery) {
+    contactsToDisplay = filterContactsByTag(contactsToDisplay, tagQuery);
+  }
 
   contactListElement.innerHTML = contactsToDisplay
     .map((contact) => {
@@ -69,6 +74,20 @@ function searchContacts(allContacts, searchQuery) {
   }
 
   return searchedContacts;
+}
+
+// Function FILTER Contact
+function filterContactsByTag(allContacts, tagQuery) {
+  const filteredContacts = allContacts.filter((contact) => {
+    return contact.labels.includes(tagQuery);
+  });
+
+  if (filteredContacts.length <= 0) {
+    console.log("No contacts found for this tag");
+    return [];
+  }
+
+  return filteredContacts;
 }
 
 // Redirect contact view
