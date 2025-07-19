@@ -6,7 +6,10 @@ Access it at [address-book.ammarismail.com](https://address-book.ammarismail.com
 
 ## Features
 
-- Add new contacts
-- Edit or delete contacts
-- Search contacts
-- Data saved in browser
+- [✔] View all contact
+- [✔] Add new contact
+- [✔] Delete contact
+- [✔] Search Contact
+- [✔] Data saved in browser / localstorage
+- [✔] Edit contact
+- [ ] View/filter by tag
