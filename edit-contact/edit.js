@@ -25,7 +25,7 @@ inputStreetAddress.value = selectedContact.address.streetAddress;
 inputCity.value = selectedContact.address.city;
 inputPostalCode.value = selectedContact.address.postalCode;
 inputIsFavorited.checked = selectedContact.isFavorited;
-inputLabels.value = selectedContact.labels[0] || ""; // hanya ambil label pertama
+inputLabels.value = selectedContact.labels[0] || "";
 
 editForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -37,7 +37,7 @@ editForm.addEventListener("submit", function (event) {
   selectedContact.address.city = inputCity.value;
   selectedContact.address.postalCode = inputPostalCode.value;
   selectedContact.isFavorited = inputIsFavorited.checked;
-  selectedContact.labels = [inputLabels.value]; // Simpan dalam array
+  selectedContact.labels = [inputLabels.value];
 
   localStorage.setItem("contacts", JSON.stringify(contactList));
 
