@@ -1,20 +1,21 @@
 let dataContacts = JSON.parse(localStorage.getItem("contacts")) || [];
 
-// Function DISPLAY Contact
 function displayContacts(contacts) {
   const contactListElement = document.getElementById("contact-list");
 
-  // Mengubah urlParams menjadi ursSearchParams
-  const ursSearchParams = new URLSearchParams(window.location.search);
-  const searchQuery = ursSearchParams.get("q"); // Mengambil parameter pencarian
-  const tagQuery = ursSearchParams.get("tag"); // Mengambil parameter tag dari URL
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlSearchParams.get("q");
+  const labelQuery = urlSearchParams.get("label");
+  const favoritesQuery = urlSearchParams.get("favorites") === "" ? true : false;
 
-  // Filter berdasarkan pencarian
   let contactsToDisplay = searchQuery ? searchContacts(contacts, searchQuery) : contacts;
 
-  // Filter berdasarkan tag
-  if (tagQuery) {
-    contactsToDisplay = filterContactsByTag(contactsToDisplay, tagQuery);
+  if (labelQuery) {
+    contactsToDisplay = filterContactsByLabel(contactsToDisplay, labelQuery);
+  }
+
+  if (favoritesQuery) {
+    contactsToDisplay = filterFavoritedContacts(contactsToDisplay);
   }
 
   // Render kontak yang telah difilter
@@ -49,9 +50,6 @@ function displayContacts(contacts) {
     .join("");
 }
 
-displayContacts(dataContacts);
-
-// Function DELETE Contact
 function deleteContact(id) {
   const isConfirmed = confirm("Do you want to delete this contact?");
   if (!isConfirmed) return;
@@ -81,25 +79,38 @@ function searchContacts(allContacts, searchQuery) {
 }
 
 // Function FILTER Contact
-function filterContactsByTag(allContacts, tagQuery) {
+function filterContactsByLabel(allContacts, labelQuery) {
   const filteredContacts = allContacts.filter((contact) => {
-    return contact.labels.includes(tagQuery);
+    return contact.labels.includes(labelQuery);
   });
 
   if (filteredContacts.length <= 0) {
-    console.log("No contacts found for this tag");
+    console.log("No contacts found for this label");
     return [];
   }
 
   return filteredContacts;
 }
 
-// Redirect contact view
+function filterFavoritedContacts(allContacts) {
+  const filteredContacts = allContacts.filter((contact) => {
+    return contact.isFavorited === true;
+  });
+
+  if (filteredContacts.length <= 0) {
+    console.log("No favorited contacts found");
+    return [];
+  }
+
+  return filteredContacts;
+}
+
 function viewContact(id) {
   window.location.href = `view-contact/?id=${id}`;
 }
 
-// Redirect edit
 function editContact(id) {
   window.location.href = `edit-contact/?id=${id}`;
 }
+
+displayContacts(dataContacts);
