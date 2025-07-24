@@ -28,7 +28,6 @@ function displayContacts(contacts) {
             <p class="text-sm text-gray-600">Email: ${contact.email}</p>
             <p class="text-sm text-gray-600">Phone: ${contact.phone}</p>
             <p class="text-sm text-gray-600">Address: ${contact.address.streetAddress}, ${contact.address.city}, ${contact.address.postalCode}</p>
-            <p class="text-sm text-gray-600">Favorited: ${contact.isFavorited ? "Yes" : "No"}</p>
             <p class="text-sm text-gray-600">Labels: ${contact.labels.join(", ")}</p>
           </div>
         </div>
